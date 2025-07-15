@@ -28,7 +28,9 @@ const coursesByYear = {
     "Enfermería Pediátrica – ENF400": ["Enfermería Médico Quirúrgico, Geriatría – ENF300"],
     "Enfermería Ginecobstetricia – ENF410": ["Enfermería Médico Quirúrgico, Geriatría – ENF300"],
     "Salud Pública III – SAP400": ["Salud Pública II – SAP310"],
-    "Investigación en Enfermería II – ADM410": ["Psiquiatría y Salud Mental – ENF310"],
+    "Investigación en Enfermería II – ADM410": ["Psiquiatría y Salud Mental – ENF310"]
+  },
+        "año-5": {
     "Internado Rotatorio - GRL001": [
       "Enfermería Pediátrica – ENF400",
       "Enfermería Ginecobstetricia – ENF410",
