@@ -12,19 +12,29 @@ h1 {
   color: #1565c0;
 }
 
+h2 {
+  color: #0d47a1;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.year-section {
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px 20px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
-  padding: 20px;
-  max-width: 1200px;
   width: 100%;
 }
 
 .course {
-  background-color: #bbdefb;
+  background-color: #e0f2f1; /* Azul muy claro */
   color: #0d47a1;
-  border: 2px solid #64b5f6;
+  border: 2px solid #b2dfdb;
   border-radius: 8px;
   padding: 10px;
   text-align: center;
@@ -32,7 +42,7 @@ h1 {
   cursor: pointer;
   transition: 0.3s ease;
   user-select: none;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
 }
 
 .course.locked {
@@ -43,7 +53,8 @@ h1 {
 }
 
 .course.approved {
-  background-color: #a5d6a7;
-  color: #1b5e20;
-  border-color: #66bb6a;
+  background-color: #d0d9ff;
+  color: #546e7a;
+  text-decoration: line-through;
+  border-color: #90a4ae;
 }
