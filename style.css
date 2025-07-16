@@ -9,7 +9,7 @@ body {
 
 h1 {
   margin: 20px;
-  color: #0d47a1;
+  color: #8bc8dd;
 }
 
 .main-grid {
@@ -33,7 +33,7 @@ h1 {
 
 .year-column h2 {
   margin-bottom: 10px;
-  color: #0d47a1;
+  color: #8bc8dd;
 }
 
 .year-grid {
@@ -44,7 +44,7 @@ h1 {
 }
 
 .course {
-  background-color: #3e7098;
+  background-color: #7aaed3;
   color: #91cee0;
   border: 2px solid #42a5f5;
   border-radius: 8px;
