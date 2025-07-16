@@ -12,29 +12,41 @@ h1 {
   color: #0d47a1;
 }
 
-h2 {
-  color: #0d47a1;
-  margin-top: 30px;
-  margin-bottom: 10px;
-}
-
-.year-section {
+.main-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 0 20px 40px;
   width: 100%;
-  max-width: 1200px;
-  padding: 10px 20px;
+  max-width: 1600px;
+  overflow-x: auto;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.year-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.year-column h2 {
+  margin-bottom: 10px;
+  color: #0d47a1;
+}
+
+.year-grid {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   width: 100%;
 }
 
 .course {
-  background-color: #90caf9;          /* Azul medio */
-  color: #0d47a1;                      /* Azul muy oscuro para texto */
-  border: 2px solid #42a5f5;          /* Azul más fuerte para bordes */
+  background-color: #90caf9;
+  color: #0d47a1;
+  border: 2px solid #42a5f5;
   border-radius: 8px;
   padding: 10px;
   text-align: center;
@@ -46,15 +58,15 @@ h2 {
 }
 
 .course.locked {
-  background-color: #78909c;          /* Gris azulado oscuro */
-  color: #263238;                      /* Azul gris oscuro */
+  background-color: #78909c;
+  color: #263238;
   border-color: #546e7a;
   cursor: not-allowed;
 }
 
 .course.approved {
-  background-color: #1565c0;          /* Azul oscuro */
-  color: #e3f2fd;                     /* Azul claro/blanco */
+  background-color: #1565c0;
+  color: #e3f2fd;
   border-color: #0d47a1;
   text-decoration: line-through;
 }
