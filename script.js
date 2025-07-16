@@ -1,3 +1,4 @@
+
 const coursesByYear = {
   "año-1": {
     "Bioestadística en Enfermería y Computación – ENF111": [],
@@ -39,8 +40,9 @@ const coursesByYear = {
   }
 };
 
+let approved = new Set(JSON.parse(localStorage.getItem("aprobados") || "[]"));
+
 const allCourses = {};
-const approved = new Set();
 
 Object.entries(coursesByYear).forEach(([yearId, courses]) => {
   const container = document.getElementById(yearId);
@@ -49,7 +51,9 @@ Object.entries(coursesByYear).forEach(([yearId, courses]) => {
     const div = document.createElement("div");
     div.textContent = name;
     div.classList.add("course");
-    if (prereqs.length > 0) div.classList.add("locked");
+    if (approved.has(name)) {
+  div.classList.add("approved");
+}
 
     container.appendChild(div);
 
@@ -60,6 +64,8 @@ Object.entries(coursesByYear).forEach(([yearId, courses]) => {
 
       div.classList.add("approved");
       approved.add(name);
+      
+      localStorage.setItem("aprobados", JSON.stringify([...approved]));
 
       // Revisar qué cursos se desbloquean
       Object.entries(allCourses).forEach(([nextName, info]) => {
