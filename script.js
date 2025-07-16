@@ -76,7 +76,15 @@ Object.entries(coursesByYear).forEach(([yearId, courses]) => {
         if (!info.element.classList.contains("locked")) return;
         const ready = info.prereqs.every(req => approved.has(req));
         if (ready) info.element.classList.remove("locked");
+        
       });
     });
   });
+});
+// ✅ Botón para reiniciar malla (esto va UNA SOLA VEZ, fuera de cualquier bucle)
+document.getElementById("resetBtn").addEventListener("click", () => {
+  if (confirm("¿Seguro que quieres reiniciar la malla? Se borrarán todos los cursos aprobados.")) {
+    localStorage.removeItem("aprobados");
+    location.reload();
+  }
 });
