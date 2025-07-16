@@ -40,7 +40,9 @@ const coursesByYear = {
   }
 };
 
+// Cargar los cursos aprobados desde localStorage
 let approved = new Set(JSON.parse(localStorage.getItem("aprobados") || "[]"));
+
 const allCourses = {};
 
 Object.entries(coursesByYear).forEach(([yearId, courses]) => {
@@ -51,7 +53,7 @@ Object.entries(coursesByYear).forEach(([yearId, courses]) => {
     div.textContent = name;
     div.classList.add("course");
 
-    // 👇 Lógica corregida:
+    // ✅ Estado inicial al cargar la página
     if (approved.has(name)) {
       div.classList.add("approved");
     } else if (prereqs.length > 0 && !prereqs.every(req => approved.has(req))) {
@@ -61,6 +63,7 @@ Object.entries(coursesByYear).forEach(([yearId, courses]) => {
     container.appendChild(div);
     allCourses[name] = { element: div, prereqs };
 
+    // ✅ Evento cuando haces clic
     div.addEventListener("click", () => {
       if (div.classList.contains("locked") || div.classList.contains("approved")) return;
 
@@ -68,7 +71,7 @@ Object.entries(coursesByYear).forEach(([yearId, courses]) => {
       approved.add(name);
       localStorage.setItem("aprobados", JSON.stringify([...approved]));
 
-      // Desbloquear los cursos que dependen de este
+      // Desbloquear cursos que dependían de este
       Object.entries(allCourses).forEach(([nextName, info]) => {
         if (!info.element.classList.contains("locked")) return;
         const ready = info.prereqs.every(req => approved.has(req));
