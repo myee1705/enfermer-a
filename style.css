@@ -70,3 +70,19 @@ h1 {
   border-color: #0d47a1;
   text-decoration: line-through;
 }
+#resetBtn {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#resetBtn:hover {
+  background-color: #0d47a1;
+}
+
