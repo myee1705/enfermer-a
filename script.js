@@ -41,7 +41,6 @@ const coursesByYear = {
 };
 
 let approved = new Set(JSON.parse(localStorage.getItem("aprobados") || "[]"));
-
 const allCourses = {};
 
 Object.entries(coursesByYear).forEach(([yearId, courses]) => {
@@ -51,12 +50,15 @@ Object.entries(coursesByYear).forEach(([yearId, courses]) => {
     const div = document.createElement("div");
     div.textContent = name;
     div.classList.add("course");
+
+    // 👇 Lógica corregida:
     if (approved.has(name)) {
-  div.classList.add("approved");
-}
+      div.classList.add("approved");
+    } else if (prereqs.length > 0 && !prereqs.every(req => approved.has(req))) {
+      div.classList.add("locked");
+    }
 
     container.appendChild(div);
-
     allCourses[name] = { element: div, prereqs };
 
     div.addEventListener("click", () => {
@@ -64,10 +66,9 @@ Object.entries(coursesByYear).forEach(([yearId, courses]) => {
 
       div.classList.add("approved");
       approved.add(name);
-      
       localStorage.setItem("aprobados", JSON.stringify([...approved]));
 
-      // Revisar qué cursos se desbloquean
+      // Desbloquear los cursos que dependen de este
       Object.entries(allCourses).forEach(([nextName, info]) => {
         if (!info.element.classList.contains("locked")) return;
         const ready = info.prereqs.every(req => approved.has(req));
