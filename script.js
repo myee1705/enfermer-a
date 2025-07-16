@@ -83,6 +83,7 @@ Object.entries(coursesByYear).forEach(([yearId, courses]) => {
 });
 // ✅ Botón para reiniciar malla (esto va UNA SOLA VEZ, fuera de cualquier bucle)
 document.getElementById("resetBtn").addEventListener("click", () => {
+  console.log("Reiniciar clickeado");
   if (confirm("¿Seguro que quieres reiniciar la malla? Se borrarán todos los cursos aprobados.")) {
     localStorage.removeItem("aprobados");
     location.reload();
